@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/BOJ/BOJ/boj_1991.cpp
+/BOJ/BOJ/input.txt

@@ -2,7 +2,7 @@
 using namespace std;
 /*
 	2019. 07. 23. Start
-	~ 2019.07. 23. AC
+	~ 2019.07. 24. AC
 
 	백준 2042. 구간 합 구하기
 */
@@ -44,7 +44,7 @@ int main() {
 			int s = idx + (b - 1);
 			int e = idx + (c - 1);
 			if (s == e) {
-				printf("%lld", tree[s]);
+				printf("%lld\n", tree[s]);
 				continue;
 			}
 

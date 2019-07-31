@@ -35,5 +35,6 @@ int main() {
 				Q.push(next);
 		}
 	}
+
 	return 0;
 }

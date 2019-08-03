@@ -4,7 +4,7 @@
 using namespace std;
 /*
 	2019. 08. 04.
-	백준 4375. 단절점
+	백준 11266. 단절점
 */
 vector<int> a[100001];
 int discovered[100001];

@@ -1,6 +1,12 @@
 #include<iostream>
 #include<string>
 using namespace std;
+/*
+	2019. 08. 15.
+	백준 3830. 교수님은 기다리지 않는다
+
+	디스조인트 셋
+*/
 int N, M, parent[100001];
 long long diff[100001];
 

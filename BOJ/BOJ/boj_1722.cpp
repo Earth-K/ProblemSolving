@@ -1,7 +1,12 @@
 #include<iostream>
 using namespace std;
 typedef long long ll;
+/*
+	2019. 08. 23.
+	백준 1722. 순열의 순서
 
+	조합론, DP
+*/
 int N, type, arr[21];
 ll fac[21], K;
 bool chk[21];

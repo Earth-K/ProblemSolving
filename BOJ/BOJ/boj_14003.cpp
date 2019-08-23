@@ -1,98 +1,54 @@
-#include<iostream>
-#include<climits>
+#include<cstdio>
+#include<algorithm>
+#include<vector>
+#include<stack>
 using namespace std;
+/*
+	2019. 08. 23.
+	백준 14003. 가장 긴 증가하는 부분 수열 5
 
-struct Node {
-	int val;
-	Node *left, *right;
-	Node(int v):val(v),left(0),right(0){}
-	Node() {}
+	DP
+*/
+struct Obj {
+	int idx, num;
 };
-
-int N;
-Node nodePool[1000001];
-int nodeIdx;
-int m, sz;
-Node *root;
-
-Node* getNode(int v) {
-	nodePool[nodeIdx].val = v;
-	nodePool[nodeIdx].left = NULL;
-	nodePool[nodeIdx].right = NULL;
-	return &nodePool[nodeIdx++];
-}
-
-void _insert(Node* n, int v) {
-
-	if (n->val > v) {
-		if (n->left == NULL) {
-			n->left = getNode(v);
-			sz++;
-			return;
-		}
-		else
-			_insert(n->left, v);
-	}
-	else if (n->val < v) {
-		if (n->right == NULL) {
-			n->right = getNode(v);
-			sz++;
-			return;
-		}
-		else
-			_insert(n->right, v);
-	}
-}
-
-void _update(Node *n, int v) {
-
-	if (n->val < v) {
-		if (n->right == NULL) {
-			n->val = v;
-			m = v;
-		}
-		else
-			_update(n->right, v);
-	}
-	else if (n->val > v) {
-		if (n->left == NULL)
-			n->val = v;
-		else
-			_update(n->left, v);
-	}
-	else {
-		m = v;
-	}
-}
-
-void inorder(Node *n) {
-	if (n == NULL) return;
-	inorder(n->left);
-	printf("%d ", n->val);
-	inorder(n->right);
-}
+int P[1000001], arr[1000001], N, idx;
+vector<Obj> vt;
 
 int main() {
-	//freopen("input.txt","r",stdin);
-	int num;
 	scanf("%d", &N);
-	scanf("%d", &num);
-	root = getNode(num);
+	for (int i = 0; i < N; i++)
+		scanf("%d", &arr[i]);
 
-	sz = 1;
-	m = num;
+	idx = 0;
+	vt.push_back({ idx,arr[0] });
+	P[idx++] = arr[0];
+
 	for (int i = 1; i < N; i++) {
-		scanf("%d", &num);
-
-		if (m < num) {
-			m = num;
-			_insert(root, num);
+		if (P[idx - 1] < arr[i]) {
+			vt.push_back({ idx,arr[i] });
+			P[idx++] = arr[i];
 		}
 		else {
-			_update(root, num);
+			int tidx = lower_bound(P, P + idx, arr[i]) - P;
+			P[tidx] = arr[i];
+			vt.push_back({ tidx, arr[i] });
 		}
 	}
-	printf("%d\n",sz);
-	inorder(root);
+
+	stack<int> st;
+	int targetIdx = idx-1;
+	for (int i = vt.size() - 1; i >= 0; i--) {
+		if (targetIdx == -1) break;
+		if (vt[i].idx == targetIdx) {
+			st.push(vt[i].num);
+			targetIdx--;
+		}
+	}
+	printf("%d\n", st.size());
+	while (!st.empty()) {
+		int num = st.top(); st.pop();
+		printf("%d ", num);
+	}
 	return 0;
 }

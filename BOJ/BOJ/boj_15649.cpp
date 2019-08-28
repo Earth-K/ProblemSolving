@@ -1,4 +1,4 @@
-#include<iostream>
+#include<cstdio>
 using namespace std;
 /*
 	2019. 08. 28.
@@ -13,8 +13,8 @@ bool chk[9];
 void perm(int idx) {
 	if (idx == M) {
 		for (int i = 0; i < M; i++)
-			cout << ans[i] << " ";
-		cout << "\n";
+			printf("%d ", ans[i]);
+		printf("\n");
 		return;
 	}
 	for (int i = 0; i < N; i++) {
@@ -28,7 +28,7 @@ void perm(int idx) {
 }
 
 int main() {
-	cin >> N >> M;
+	scanf("%d%d", &N, &M);
 	for (int i = 0; i < N; i++)
 		arr[i] = i + 1;
 	perm(0);

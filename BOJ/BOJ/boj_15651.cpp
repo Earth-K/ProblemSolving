@@ -2,7 +2,7 @@
 using namespace std;
 /*
 	2019. 08. 28.
-	[BOJ] 백준 15649. N과 M (3)
+	[BOJ] 백준 15651. N과 M (3)
 
 	DFS
 */

@@ -2,7 +2,7 @@
 #include<algorithm>
 /*
 	2019. 08. 31.
-	[BOJ] 백준 15654. N과 M (6)
+	[BOJ] 백준 15655. N과 M (6)
 
 	DFS
 */

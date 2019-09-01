@@ -5,7 +5,7 @@
 	2019. 09. 01.
 	[BOJ] 백준 3176. 도로 네트워크 
 
-	LCA
+	LCA (sparse table)
 */
 #define INF 987654321
 using namespace std;

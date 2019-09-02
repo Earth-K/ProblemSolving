@@ -1,82 +1,47 @@
 #include<iostream>
 using namespace std;
 /*
-	2019. 07. 23.
-	백준 1991. 트리 순회
+	2019. 09. 02.
+	[BOJ] 백준 1991. 트리 순회
+	
+	트리
 */
+int adj[26][2], N;
 
-struct Node {
-	char alp;
-	Node *left, *right;
-	Node(char alp):alp(alp),left(0),right(0){}
-	Node(){}
-};
-
-int N;
-
-class _tree {
-public:
-
-	Node *p[26], *root;
-
-	_tree(char ch) { 
-		root = new Node(ch); 
-		p[0] = root; 
-	}
-	_tree() {}
-
-	void insert(char target, char ch, int type) {
-		if (ch == '.') return;
-
-		Node *newNode = new Node(ch);
-		Node *t = p[target - 'A'];
-
-		if(type == 0)	
-			t->left = newNode;
-		else  
-			t->right = newNode;
-
-		p[ch - 'A'] = newNode;
-	}
-};
-
-void preoder(Node *t) {
-	if (t == 0) return;
-	printf("%c", t->alp);
-	preoder(t->left);
-	preoder(t->right);
+void preOrder(int n) {
+	if (n+'A' == '.') return;
+	cout<< (char)(n+'A');
+	preOrder(adj[n][0]);
+	preOrder(adj[n][1]);
 }
-void inoder(Node *t) {
-	if (t == 0) return;
-	inoder(t->left);
-	printf("%c", t->alp);
-	inoder(t->right);
+void inOrder(int n) {
+	if (n+'A' == '.') return;
+	inOrder(adj[n][0]);
+	cout<< (char)(n+'A');
+	inOrder(adj[n][1]);
 }
-void postoder(Node *t) {
-	if (t == 0) return;
-	postoder(t->left);
-	postoder(t->right);
-	printf("%c", t->alp);
+void postOrder(int n) {
+	if (n+'A' == '.') return;
+	postOrder(adj[n][0]);
+	postOrder(adj[n][1]);
+	cout<< (char)(n+'A');
 }
-
 int main() {
-	//freopen("input.txt","r",stdin);
-	scanf("%d", &N);
-	_tree *tree = new _tree('A');
-
-	for (int i = 0; i < N; i++) {
-		char ch[4];
-		cin >> ch[0] >> ch[1] >> ch[2];
-
-		tree->insert(ch[0], ch[1], 0);
-		tree->insert(ch[0], ch[2], 1);
+	cin >> N;
+	for (int i = 0,n,l,r; i<N; i++) {
+		char ch1, ch2, ch3;
+		cin >> ch1 >> ch2 >> ch3;
+		n = ch1-'A';
+		l = ch2-'A';
+		r = ch3-'A';
+		adj[n][0] = l;
+		adj[n][1] = r;
 	}
-
-	preoder(tree->root);
-	printf("\n");
-	inoder(tree->root);
-	printf("\n");
-	postoder(tree->root);
+	preOrder(0);
+	cout<<"\n";
+	inOrder(0);
+	cout<<"\n";
+	postOrder(0);
 
 	return 0;
 }

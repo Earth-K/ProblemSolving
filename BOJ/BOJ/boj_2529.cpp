@@ -6,7 +6,7 @@ using namespace std;
 	2019. 10. 08.
 	백준 2529. 부등호
 
-	순열
+	순열, 문자-숫자 매핑
 */
 int k, op[10], arr[11];
 vector<int> big, small;

@@ -53,9 +53,6 @@
     <ClCompile Include="boj_2748.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="boj_2824.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="boj_11400.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -68,13 +65,7 @@
     <ClCompile Include="boj_1504.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="boj_1644.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="boj_1717.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="boj_1837.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="boj_11266.cpp">
@@ -108,9 +99,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="boj_1708.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\boj_11400_2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="boj_3878.cpp">
@@ -183,6 +171,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="boj_17143.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_14888.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
